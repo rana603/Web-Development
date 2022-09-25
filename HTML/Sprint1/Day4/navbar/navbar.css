@@ -1,0 +1,46 @@
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 88px;
+    box-shadow: 7px 7px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    background-color: white;
+
+}
+.logo{
+    padding-left: 40px;
+}
+.subheader{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    width: auto ; 
+    padding-right: 40px;
+     
+}
+.Navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+}
+.login{
+    width: 82px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:red;
+    border:1px solid red;
+    border-radius: 7px;
+    font-family: serif;
+    margin-left: 40px;
+}
+.Navbar p{
+    margin: 0px 20px; 
+}
+.Navbar p a{
+    text-decoration: none;
+    color:black;
+}
