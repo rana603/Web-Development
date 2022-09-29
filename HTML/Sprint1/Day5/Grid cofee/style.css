@@ -1,0 +1,40 @@
+#header{
+    display: grid;
+    grid-template-columns: repeat(3,32%);
+    gap: 30px;
+    margin: 40px 80px;
+  
+}
+.subheader{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+}
+.subheader>div{
+    display: flex;
+    justify-content: space-between;
+}
+h2,p{
+    padding: 3px 30px;
+}
+.subheader div h2:last-child{
+     color: #c78b36;
+}
+
+/* medium screens */
+@media only screen and (min-width: 480px) and (max-width: 720px) {
+    #header{
+        grid-template-columns: repeat(2,48%);
+        margin: 5px 30px;
+    }
+    
+}
+
+/* small screens */
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+    #header{
+        grid-template-columns: repeat(1,98%);
+        margin: 5px 40px;
+    }
+    
+    
+}
