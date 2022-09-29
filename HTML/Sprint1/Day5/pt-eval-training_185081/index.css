@@ -1,0 +1,73 @@
+      /* Write your styles here */
+#teachers{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      /* grid-template-rows: ; */
+      gap: 10px;
+}
+#header {
+      text-align: center;
+}
+#header> p{
+      width:40% ;
+      margin: auto;
+      margin-bottom:20px ;
+}
+#teachers > div img{
+      width: 96%;
+      /* padding: 5px; */
+}
+#teachers> div{
+      text-align: center;
+      margin: 5px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+}
+h6{
+      margin: -10px 0;
+}
+#courses{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      /* margin-top:40px ; */
+      margin: 40px 100px 10px 100px;
+
+}
+#courses>div{
+      display: flex;
+      /* width: 80%; */
+}
+#courses> div img{
+      width: 80px;
+      height: 80px;
+      /* margin-top:40px ; */
+      margin: 30px 20px 0px 20px;
+}
+#courses> div> p{
+      font-size: 20px;  
+}
+
+
+
+
+      /* keep media queries at that last */
+      /* medium screens */
+      @media only screen and (min-width: 421px) and (max-width: 720px) { 
+            #teachers{
+                  grid-template-columns: repeat(2,1fr);
+            }
+            #courses{
+                  grid-template-columns: repeat(2,1fr);
+            }
+      }
+      /* small screens */
+      @media only screen and (min-width: 0px) and (max-width: 420px) {
+            #teachers{
+                  grid-template-columns: repeat(1,1fr);
+            }
+            #courses{
+                  grid-template-columns: repeat(1,1fr);
+            }
+            #courses>div{
+                  margin:-30px;
+            }
+      }
