@@ -21,15 +21,15 @@
     document.getElementById("btn").addEventListener("click", Checker)
     function Checker() {
         var age = document.getElementById("age").value
-        var para = document.getElementById("msg")
+        var Massage = document.getElementById("msg")
         if (age > 18) {
-            para.innerText = "You can drive in India!"
+            Massage.innerText = "You can drive in India!"
         }
         else if (age == 18) {
-            para.innerText = "You are just old enough to drive in India!"
+            Massage.innerText = "You are just old enough to drive in India!"
         }
         else {
-            para.innerText = "You can't drive in India"
+            Massage.innerText = "You can't drive in India"
         }
     }
 </script>
