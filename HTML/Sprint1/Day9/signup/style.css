@@ -1,0 +1,184 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+.login_Container{
+    width: 400px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:1px;
+    flex-wrap: wrap;
+}
+.signIn{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 5px;
+    padding: 20px 30px;
+    border-radius: 20px;
+}
+.loginLogo{
+    margin-top:5px;
+    margin-bottom:0rem;
+    position: center;
+
+}
+.loginLogo img{
+    width: 150%;
+    height: 150%;
+    
+}
+.textSign{
+    font-size:22px;
+    font-weight:900;
+    text-align: center;
+}
+
+/***form***/
+
+.inputContainer input[type="email"],.inputContainer input[type="password"]{
+    width: 100%;
+    font-size: 18px;
+    padding:10px;
+    border:none;
+    outline: none;
+}
+
+.inputContainer label{
+    font-size: 17px;
+    color:rgb(117, 117, 117);
+}
+.inputContainer input::placeholder{
+    font-size: 15px;
+}
+
+.passwordForgotPassword{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin:5px 0px;
+}
+.passwordForgotPassword a{
+    text-decoration: none;
+}
+.inputContainer{
+    margin:20px 0px;
+}
+
+.signButton{
+    width: 420px;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 18px;
+    border:none;
+    background-color: rgba(37,99,235);
+    margin:15px 0px;
+    color: #fff;
+}
+
+.loginWithGoogle{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border:1px solid #ccc;
+    border-radius: 7px;
+    margin:20px 0px;
+}
+.loginWithGoogle img{
+    width: 20px;
+    height: 20px;
+    margin:0px 10px;
+}
+.accountCreate{
+    color:rgb(117, 117, 117);
+    font-size: 17px;
+    margin:20px 0px;
+    text-align: center;
+}
+.accountCreate span a{
+    margin:0px 3px;
+    text-decoration: none;
+    
+}
+
+
+.TermsAndCondition{
+    /* background-color: #ccc; */
+    /* color:rgb(83, 80, 80); */
+    color: rgba(156,163,175);
+    padding:2px 0px;
+    margin:0px 0px;
+    font-size: 18px;
+    width: 35%;
+    text-align: center;
+}
+
+
+
+/*****/
+.InputPassword{
+    display: flex;
+    align-items: center;
+    width:400px;
+    border-radius:7px;
+    border:1px solid #ccc;
+    padding:0px 10px;
+}
+.InputPassword input[type="checkbox"]{
+    width:20px;
+    height: 20px;
+    position:relative;
+    -webkit-appearance: none;
+    
+}
+.InputPassword input[type="checkbox"]:before{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    content: '\f06e';
+    font-size: 20px;
+    font-weight: 900;
+    font-family: "Font Awesome 6 free";
+    color:rgb(117, 117, 117);
+
+}
+.InputPassword input[type="checkbox"]:checked::before{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    content: '\f070';
+    font-size: 20px;
+    font-weight: 900;
+    font-family: "Font Awesome 6 free";
+    color:rgb(117, 117, 117);
+
+
+}
+
+
+.inputContainer input[type="text"]{
+    width: 100%;
+    font-size: 18px;
+    padding:10px;
+    border:none;
+    outline: none;
+}
+
+
+/*******Email*****/
+.Sign_Term{
+    color:rgb(117, 117, 117);
+    text-align: center;
+    margin: 10px 0px;
+    width: 400px;
+    padding: 1px 0px;
+}
