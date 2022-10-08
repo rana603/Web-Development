@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #shoes {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    #shoes>div {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        text-align: center;
+    }
+
+    h5+div {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    h5+div>p:first-child {
+        text-decoration: line-through;
+    }
+
+    img {
+        width: 100%;
+
+    }
+
+    button{
+        margin-bottom: 20px;
+    }
+    .cartBtn {
+        width: 50%;
+        border-radius: 5px;
+        display: block;
+        border: 0;
+        margin: 15px auto;
+        padding: 10px 0;
+        background-color: teal;
+        color: #ffff;
+        cursor: pointer;
+        padding-top: 10px;
+    }
+</style>
+
+<body>
+    <div id="shoes"></div>
+</body>
+
+</html>
+<script>
+    var mensData = [
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK RUNNING ROADMAP SHOES",
+            price: "1170",
+            strikedoffprice: "2599",
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+            price: 699,
+            strikedoffprice: 999,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+            price: 945,
+            strikedoffprice: 2099,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK SWIM AVENGER FLIP LP SLIPPERS",
+            price: 399,
+            strikedoffprice: 799,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK RUNNING TEMPO SHOES ",
+            price: 1620,
+            strikedoffprice: 3599,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: " MEN'S REEBOK RUNNING ASTRO BOOSTER SHOES ",
+            price: 1440,
+            strikedoffprice: 3199,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: " MEN'S TRAINING WORKOUT READY ELITAGE PANTS ",
+            price: 1999,
+            strikedoffprice: 3199,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK TRAINING  POLO T-SHIRTS TEE  ",
+            price: 769,
+            strikedoffprice: 1099,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK RUNNING ROADMAP SHOES",
+            price: "1170",
+            strikedoffprice: "2599",
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+            price: 699,
+            strikedoffprice: 999,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+            price: 945,
+            strikedoffprice: 2099,
+        },
+        {
+            image_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU",
+            name: "MEN'S REEBOK SWIM AVENGER FLIP LP SLIPPERS",
+            price: 399,
+            strikedoffprice: 799,
+        },
+    ];
+
+    displayProducts();
+    function displayProducts() {
+        mensData.map(function (elem) {
+            var div = document.createElement("div");
+            var image = document.createElement("img");
+            image.setAttribute("src", elem.image_url);
+            image.setAttribute("alt", elem.id);
+
+            var h5 = document.createElement("h5");
+            h5.innerText = elem.name;
+
+            var priceBox = document.createElement("div");
+            var price = document.createElement("p");
+            price.innerText = elem.price;
+
+            var strikedPrice = document.createElement("p");
+            strikedPrice.innerText = elem.strikedoffprice;
+            priceBox.append(strikedPrice, price);
+
+            var cartBtn = document.createElement("button");
+            cartBtn.innerText = "Add to cart";
+    
+            div.append(image, h5, priceBox, cartBtn);
+
+            div.append(image, h5, priceBox,cartBtn);
+            document.querySelector("#shoes").append(div);
+        });
+    }
+    
+
+
+
+</script>

@@ -1,0 +1,25 @@
+#shoes{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+
+}
+h5 + div{
+    display: flex;
+    justify-content: space-between;
+}
+
+h5 +div > p:first-child{
+    text-decoration: line-through;
+}
+img{
+    width: 100%;
+
+}
+.cartBtn{
+    width: 50%;
+    border-radius: 5px;
+    display: block;
+    border: 0;
+    margin: 15px;
+}
