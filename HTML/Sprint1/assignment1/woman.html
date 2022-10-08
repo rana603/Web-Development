@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #shoes {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    #shoes>div {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        text-align: center;
+    }
+
+    h5+div {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    h5+div>p:first-child {
+        text-decoration: line-through;
+    }
+
+    img {
+        width: 100%;
+
+    }
+    button{
+        margin-bottom: 20px;
+    }
+
+    .cartBtn {
+        width: 50%;
+        border-radius: 5px;
+        display: block;
+        border: 0;
+        margin: 15px auto;
+        margin-bottom: 50px;
+        padding: 10px 0;
+        background-color: teal;
+        color: #ffff;
+        cursor: pointer;
+        padding-top: 10px;
+    }
+</style>
+
+<body>
+    <div id="shoes"></div>
+</body>
+
+</html>
+<script>
+    var womensData = [
+    {
+      image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK PP TIGHTS",
+      price: 749,
+      strikedoffprice: 1299,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK CLASSIC LEGGINGS",
+      price: 1399,
+      strikedoffprice: 2799,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK CLASSIC TIGHTS",
+      price: 1099,
+      strikedoffprice: 1249,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "UNISEX REEBOK SHOW SHOES",
+      price: 1249,
+      strikedoffprice: 1489,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S CLASSIC REEBOK PANTS",
+      price: 1459,
+      strikedoffprice: 1235,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK RUNNING RUN ESSENTIALS SHORT SLEEVE GRAPHIC",
+      price: 849,
+      strikedoffprice: 2599,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK TRAINING WOR MESH TIGHTS",
+      price: 1550,
+      strikedoffprice: 2599,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK RUNNING OSR HIGH-IMPACT BRA",
+      price: 1399,
+      strikedoffprice: 6599,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    {
+        image_url:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQ2yh4TJldNkeUsTAfPnYA28D7nuh6slNiQ&usqp=CAU",
+      name: "WOMEN'S REEBOK PRINT LEGGINGS ",
+      price: 1549,
+      strikedoffprice: 1799,
+    },
+    
+];
+
+    displayProducts();
+    function displayProducts() {
+        womensData.map(function (elem) {
+            var div = document.createElement("div");
+            var image = document.createElement("img");
+            image.setAttribute("src", elem.image_url);
+            image.setAttribute("alt", elem.id);
+
+            var h5 = document.createElement("h5");
+            h5.innerText = elem.name;
+
+            var priceBox = document.createElement("div");
+            var price = document.createElement("p");
+            price.innerText = elem.price;
+
+            var strikedPrice = document.createElement("p");
+            strikedPrice.innerText = elem.strikedoffprice;
+            priceBox.append(strikedPrice, price);
+
+            var cartBtn = document.createElement("button");
+            cartBtn.innerText = "Add to cart";
+    
+            div.append(image, h5, priceBox, cartBtn);
+
+            div.append(image, h5, priceBox,cartBtn);
+            document.querySelector("#shoes").append(div);
+        });
+    }
+    
+
+
+
+</script>
