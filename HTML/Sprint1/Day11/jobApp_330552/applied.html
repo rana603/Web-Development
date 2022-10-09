@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+
+  
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+    <select name="" id="sortName" onchange="handleNameSort()">
+      <option value="">Sort by Names</option>
+      <option value="ascending">Ascending</option>
+      <option value="descending">Descending</option>
+    </select>
+    <select name="" id="sortSalary" onchange="handleSalarySort()">
+      <option value="">Sort by Salary</option>
+      <option value="htl">High to Low</option>
+      <option value="lth">Low to High</option>
+    </select>
+    <select name="" id="filterRole" onchange="handleRoleFilter()">
+      <option value="">Filter by Role</option>
+      <option value="all">All</option>
+      <option value="FSD">FSD</option>
+      <option value="Frontend">Frontend</option>
+      < value="Backend">Backend</ option> 
+    </select>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job applied</th>
+            <th>Salary expected</th>
+            <th>Add to bookmark</th>
+          </tr>  
+        </thead>
+        <tbody id="body">
+          <!-- Append your output to tbody -->
+        </tbody>
+      </table>
+    </main>
+  </ body> 
+  <script> 
+    var appliedJobs=JSON.parse(localStorage.getItem("jobList"))||[];
+     displayData(appliedJobs);
+
+     function handleNameSort(){
+      var selectedVal= document.querySelector("#sortName").value;
+      console.log(selectedVal);
+      if (selectedVal==="ascending"){
+        appliedJobs.sort(function(a,b){
+          if (a.name>b.name) return 1;
+          if (b.name>a.name) return -1;
+          return 0;
+        });
+      }
+      if (selectedVal==="descending"){
+        appliedJobs.sort(function(a,b){
+          if (a.name>b.name) return -1;
+          if (b.name>a.name) return  1;
+          return 0;
+        });
+      }
+      displayData(appliedJobs);
+    }
+
+     function handleSalarySort(){
+      var selectedVal = document.getElementById("sortSalary").value;
+      if(selectedVal=="lth"){
+        appliedJobs.sort(function(a,b){
+          return a.salary-b.salary;
+        });
+      }
+      if(selectedVal=="htl"){
+        appliedJobs.sort(function(a,b){
+          return b.salary-a.salary;
+        }); 
+      }
+      // console.log()
+      displayData(appliedJobs);
+     }
+    function handleRoleFilter(){
+      var selectedVal = document.querySelector("#filterRole").value;
+      console.log(selectedVal);
+      var filteredJobs=appliedJobs.filter(function(elem){
+        if (selectedVal==="all"){
+          return true;
+        } else{ 
+        return elem.role===selectedVal;
+        } 
+      });
+      console.log(filteredJobs); 
+      displayData(filteredJobs);
+      
+    }
+
+     function displayData(jobs){
+      document.getElementById("body").innerText="";
+      jobs.map(function(elem){
+        var row=document.createElement("tr");
+
+        var td1=document.createElement("td");
+        td1.innerText=elem.name;
+
+        var td2=document.createElement("td");
+        td2.innerText=elem.email;
+
+        var td3=document.createElement("td");
+        td3.innerText=elem.role;
+
+        var td4=document.createElement("td");
+        td4.innerText=elem.salary+'LPA';
+
+        var td5=document.createElement("td");
+        td5.innerText="Bookmark";
+        td5.style.cursor="pointer";
+        td5.style.color="blue";
+        td5.addEventListener("click",function (){
+          addToBookmark(elem);
+        });
+        row.append(td1,td2,td3,td4,td5);
+        document.getElementById("body").append(row);
+      });
+     }
+     var bookmarks=JSON.parse(localStorage.getItem("bookmarks"))||[];
+     function addToBookmark(job){
+     bookmarks.push(job);
+     localStorage.setItem("bookmarks",JSON.stringify(bookmarks));
+     }
+  </script>
+</html>
