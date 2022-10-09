@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        margin: 10px;
+    }
+
+    p {
+        text-align: end;
+    }
+
+    button {
+        margin: 5px;
+    }
+
+    h3 {
+        text-align: end;
+        padding: 0px 60px;
+    }
+</style>
+</head>
+
+<body>
+    <h3 id="total">total</h3>
+    <h3 id="tprice">price</h3>
+    <div id="container">
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    var container = document.getElementById("container")
+    var cartArr = JSON.parse(localStorage.getItem("cart")) || []
+    display(cartArr)
+
+
+    function display(cartArr) {
+        container.innerHTML = ""
+        var tprice = 0
+
+        cartArr.map(function (ele, indx) {
+            var div1 = document.createElement("div")
+            var div2 = document.createElement("div")
+            var div3 = document.createElement("div")
+            var img = document.createElement("img")
+            var h5 = document.createElement("h5")
+            var p = document.createElement("p")
+
+            var qnt = document.createElement("select")
+            var opt1 = document.createElement("option")
+            opt1.setAttribute("value", 1)
+            opt1.innerText = "1"
+            var opt2 = document.createElement("option")
+            opt2.setAttribute("value", 2)
+            opt2.innerText = "2"
+            var opt3 = document.createElement("option")
+            opt3.setAttribute("value", 3)
+            opt3.innerText = "3"
+            var opt4 = document.createElement("option")
+            opt4.setAttribute("value", 4)
+            opt4.innerText = "4"
+            qnt.append(opt1, opt2, opt3, opt4)
+
+            var delbtn = document.createElement("button")
+            delbtn.innerText = "Delete"
+            delbtn.addEventListener("click", function () {
+                deleteRow(indx)
+            })
+
+
+            h5.innerText = ele.name
+            p.innerText = ele.price
+            img.setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4gCSZPv-HKsm_8o4KcotZDYXzq2bdWpKYDg&usqp=CAU")
+            div1.append(img)
+            div2.append(h5, qnt, delbtn)
+            div3.append(p)
+            container.append(div1, div2, div3)
+            var quantity = 1
+            qnt.setAttribute("onchange", "total()")
+            quantity = qnt.value
+            tprice = tprice + quantity * parseInt(ele.price)
+        })
+
+
+        var cost = 0
+        var cnt = 0
+        for (var i = 0; i < cartArr.length; i++) {
+            cost += parseInt(cartArr[i].price)
+            cnt++;
+        }
+
+        document.getElementById("total").innerHTML = "<h3> Total Price: " + cost + "</h3>"
+        document.getElementById("tprice").innerHTML = "<h3> Number of Items: " + cnt + "</h3>"
+
+
+    }
+    function deleteRow(i) {
+        cartArr.splice(i, 1)
+        localStorage.setItem("cart", JSON.stringify(cartArr))
+        display(JSON.parse(localStorage.getItem("cart")))
+
+    }
+    function total() {
+        var quantity = document.querySelector("select").value
+        console.log(quantity)
+
+
+    }
+
+
+</script>
