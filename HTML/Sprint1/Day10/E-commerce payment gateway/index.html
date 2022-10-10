@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        #container {
+            /* display: flex;
+            justify-content: center; */
+            margin: auto;
+            margin-top: 30px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            width: 25%;
+            padding: 20px;
+
+        }
+
+
+        h2 {
+            text-align: center;
+        }
+
+        #btn {
+            display: block;
+            margin: 5px auto;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Make Payment </h2>
+    <h2>Total amount : <span></span></h2>
+    <div id="container">
+
+        <form>
+            <label>Name</label>
+            <br>
+            <input type="text" placeholder="Eneter your Name">
+            <br>
+            <label>Card Number   </label>
+            <br>
+            <input type="number" placeholder="Enter Your Card Number">
+            <br>
+            <label>CVV </label>
+            <br>
+            <input type="number"  placeholder="CVV">
+            <br>
+            <label>Expiry date  </label>
+            <br>
+            <input type="date" placeholder="Enter Expiry Date">
+            <br>
+        </form>
+
+    </div>
+    <button id="btn">Pay</button>
+
+</body>
+
+</html>
+<script>
+    var cost = JSON.parse(localStorage.getItem("totalcost"))
+    if (JSON.parse(localStorage.getItem("promoApplied")) == true) cost = cost * 0.7
+    document.querySelector("span").innerText = cost
+    document.getElementById("btn").addEventListener("click", pay)
+    function pay() {
+        var inputotp = document.createElement("input")
+        var cnfbtn = document.createElement("button")
+        cnfbtn.innerText = "Submit OTP"
+        inputotp.setAttribute("placeholder", "Enter OTP")
+        inputotp.setAttribute("id", "inputotp")
+        document.querySelector("body").append(inputotp, cnfbtn)
+        cnfbtn.addEventListener("click", function () {
+            verifyOTP()
+        })
+    }
+    function verifyOTP() {
+        var x = document.getElementById("inputotp").value
+        x = parseInt(x)
+        if (x == 1234) alert("Payment Successful")
+        else alert("Invalid OTP!")
+        inputotp.value = ""
+    }
+</script>
