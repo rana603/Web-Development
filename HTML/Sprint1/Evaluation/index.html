@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Web21-C4</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="navbar.css" />
+  </head>
+  <body>
+    <div id="navbar">
+      <h2>Masai Multiplex</h2>
+      <div class="nav">
+        <a href="index.html">
+          <h2>Home</h2>
+        </a>
+        <a href="booking.html">
+          <h2>All Movies</h2>
+        </a>
+        <a href="buy.html">
+          <h2>My Movies</h2>
+        </a>
+      </div>
+    </div>
+    <div id="create">
+      <h1 style="font-size:20px ;">Multiplex Management System</h1>
+      <form id="forms">
+        <input id="name" placeholder="Movie Name" type="text" />
+        <br><br>
+        <input id="mainActor" placeholder="Main Actor Name" type="text" />
+        <br><br>
+        <input id="desc" placeholder="Movie Description" type="text" />
+        <br><br>
+        <label for="">Release Date:-</label>
+        <br>
+        <input type="date" id="release"/>
+        <br><br>
+        <select id="category">
+          <option value="">Select Category</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Action">Action</option>
+          <option value="Comedy">Comedy</option>
+        </select>
+        <br><br>
+        <input id="price" placeholder="Ticket Price" type="number" />
+        <br><br>
+        <input id="sub" type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+  <script src="./Scripts/index.js"></script>
+</html>

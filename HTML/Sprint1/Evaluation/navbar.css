@@ -1,0 +1,60 @@
+#navbar{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+
+}
+.nav{
+    display: flex;
+    margin: 0px 800px;
+    margin-right: 5px;
+}
+.nav> a{
+    padding-right: 30px;
+    text-decoration: none;
+}
+#forms{
+    display: block;
+}
+#create{
+    margin: 10px 510px;
+    padding-top: 10px;
+    padding-left: 20px;
+    display: grid;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+#name, #mainActor,#desc, #release,#category,#price, #sub{
+    height: 30px;
+    width: 260px;
+}
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #8caacf;
+  }
+  
+  table tr:hover {
+    background-color: #ddd;
+  }
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0468aa;
+    color: white;
+    text-align: center;
+  }
