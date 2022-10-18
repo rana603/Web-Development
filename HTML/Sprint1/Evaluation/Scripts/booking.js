@@ -33,7 +33,7 @@ function display(movieList) {
 }
 
 function delRow(i) {
-  bookingArr.push(movieList[i]);
+  bookingList.push(movieList[i]);
   localStorage.setItem("buy-list", JSON.stringify(bookingList));
   movieList.splice(i, 1);
   localStorage.setItem("movie-list", JSON.stringify(movieList));
