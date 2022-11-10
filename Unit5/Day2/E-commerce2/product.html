@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/527713fba5.js" crossorigin="anonymous"></script>
+
+    <title>Products</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 40px;
+        }
+
+        .product {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .product:hover {
+            transform: scale(1.03);
+        }
+
+        #sold {
+            width: 99%;
+            border-radius: 20px;
+            border: none;
+            padding: 5px;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        #sold:hover {
+            text-decoration: underline;
+
+        }
+        .product img {
+            width: 100%;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>All Products</h1>
+    <div id="counter"></div>
+    <div class="wrapper"></div>
+
+    <i class="fa-regular fa-trash"></i>
+</body>
+
+</html>
+<script>
+    var productsArr = JSON.parse(localStorage.getItem("Products")) || [];
+    var wrapper = document.querySelector(".wrapper");
+
+    display(productsArr);
+
+    function display(productsArr) {
+        wrapper.innerHTML = "";
+        var counter = document.getElementById("counter");
+        counter.innerText = "Products Count : " + productsArr.length;
+        productsArr.map(function (ele, i) {
+            var div = document.createElement("div");
+            div.setAttribute("class", "product");
+            var img = document.createElement("img");
+            var name = document.createElement("h3");
+            var Price = document.createElement("h3");
+            var soldbtn = document.createElement("button");
+            soldbtn.setAttribute("id", "sold");
+            var delbtn = document.createElement("button");
+            delbtn.setAttribute("id", "remove");
+
+            delbtn.innerHTML = "Delete";
+            soldbtn.innerText = "Sold";
+            soldbtn.setAttribute("value", "false");
+
+            name.innerText = ele.name;
+            Price.innerText = ele.price;
+            img.setAttribute("src", ele.image);
+            div.append(img, name, Price, soldbtn, delbtn);
+            wrapper.append(div);
+
+            delbtn.addEventListener("click", function () {
+                delRow(i);
+            });
+            soldbtn.addEventListener("click", function () {
+                sold();
+            });
+        });
+    }
+    function delRow(indx) {
+        productsArr.splice(indx, 1);
+        localStorage.setItem("Products", JSON.stringify(productsArr));
+        display(productsArr);
+    }
+
+    function sold() {
+        if (event.target.value == "false") {
+            event.target.value = "true";
+            event.target.style.backgroundColor = "red";
+        } else {
+            event.target.value = "false";
+            event.target.style.backgroundColor = "green";
+        }
+    }
+</script>
