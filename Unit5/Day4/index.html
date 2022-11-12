@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #movies{
+    width: 100%;
+    margin: auto;
+}
+#Container{
+    width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+#Container> div{
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+}
+
+
+.image{
+    width: 100%;
+    height: 80%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.Name{
+    text-align: center;
+    color:black;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 15px;
+
+}
+.div2{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -10px;
+    margin-bottom: -17px;
+}
+</style>
+<body>
+    <div id="movies">
+        <div id="Container"></div>       
+    </div>  
+</body>
+</html>
+<script>
+     var movies = [
+    {
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BMTg0ZTE2MTktNmJiNS00NWUyLWJjZDYtZjMwMzg2M2VmN2JjXkEyXkFqcGdeQXVyMTUzMDA3Mjc2._V1_FMjpg_UX850_.jpg",
+        name: "Emergency Declaration",
+        rating: "7",
+        date: "4 August 2022",
+           
+    },
+    {
+        imageUrl: "https://media-cache.cinematerial.com/p/500x/v22l7wq1/the-witch-part-2-movie-poster.jpg?v=1656670080",
+        name: "The Witch Part2",
+        rating: "6.2",
+        date: "15 June 2022",   
+    },
+    {
+        imageUrl: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVv0UiBSpZ6adO8C0HBUO6RAe7FnzeU6LydfBi6sj4BjuQfpvgyAN4kSh43uDf3qx8r6NXbl2qbA94WVXpTwstRqvM1J9S6rQWAlyRNVWNhbPEMjnzQMbDu4UdANKwNj358RlsIqLFWKdl0Wl8ZCkggVeayUdxORfO6jtCoQs3rHSOUwd1Zs2CIILJ/s674/20th%20Century%20Girl%20Hindi.jpeg",
+        name: "20th Centuary Girl",
+        rating: "7.3",
+        date: "6 October 2022",   
+    },
+    {
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BODc0MjJhMDYtZjYwNy00NTc2LWJjYzYtMTQ2ODY3YjEyZTZjXkEyXkFqcGdeQXVyNDcyMjQ4MzU@._V1_.jpg",
+        name: "The Witch: Part 1 - The Subversion",
+        rating: "7.1",
+        date: "2 July 2018",   
+    },
+    {
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BMTJkNjgxZGItOGUyNC00NDQ5LWIzOTAtNTgwZTNmMmY5MjkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
+        name: "Enola Holmes 2",
+        rating: "6.8",
+        date: "4 November 2022 ",    
+    },
+    {
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BNjA3NGExZDktNDlhZC00NjYyLTgwNmUtZWUzMDYwMTZjZWUyXkEyXkFqcGdeQXVyMTU1MDM3NDk0._V1_.jpg",
+        name: "Avtar",
+        rating: "7.8",
+        date: "18 December 2009",  
+    },
+    {
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
+        name: "Avengers Endgame",
+        rating: "7.8",
+        date: "26 April 2019",    
+    },
+    {
+        imageUrl: "https://assets.mubicdn.net/images/notebook/post_images/29836/images-w1400.jpg?1579571205",
+        name: "Parasite",
+        rating: "8.5",
+        date: "30 May 2019",
+    },
+    {
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+        name: "Interstellar",
+        rating: "8.6",
+        date: "7 November 2014",  
+    },
+  
+];
+
+  localStorage.setItem("movies" , JSON.stringify(movies))
+  var newMovie = JSON.parse(localStorage.getItem("")) || [];
+ 
+     var newMovie = JSON.parse(localStorage.getItem("cartitems"))||[];
+
+     movies.map(function(item){
+      var div1 = document.createElement("div");
+      div1.setAttribute("class" , "div1")
+      
+      var image = document.createElement("img");  
+      image.setAttribute("src", item.imageUrl);
+      image.setAttribute("class" , "image")
+
+      var Name = document.createElement("p"); 
+      Name.textContent = item.name;
+      Name.setAttribute("class", "Name")
+
+      var div2 = document.createElement("div");
+      div2.setAttribute("class" , "div2")
+
+      var ratings = document.createElement("p");
+      ratings.textContent = `${item.rating} ★★★`;
+
+      var Date = document.createElement("p");
+      Date.textContent = item.date;
+
+      div2.append(ratings, Date);
+
+      div1.append(image , Name, div2);
+      document.querySelector("#Container").append(div1)
+   
+  })
+</script>
