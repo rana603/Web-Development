@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    #place_Order {
+      display: flex;
+      justify-content: space-around;
+      font-size: 30px;
+      width: 80%;
+      justify-items: center;
+      margin: 20px auto;
+      color:black;
+
+    }
+
+    #place_Order>input {
+      margin-top: 10px;
+    }
+
+    #button>button {
+      font-size: 15px;
+      border: 0;
+      padding: 5px;
+      border-radius: 8px;
+      background-color:brown;
+      color: white;
+    }
+
+    #button {
+      width: 20%;
+      margin: auto;
+      font-size: 15PX;
+    }
+
+    #nav {
+      background-color: brown;
+      padding: 10px 0px 0px 30px;
+    }
+
+    #main {
+
+      width: 70%;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    #image {
+
+      width: 400px;
+      margin: auto;
+    }
+
+    #image:hover {
+      cursor: pointer;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/4/4b/McDonald%27s_logo.svg"
+      width="6%" alt="">
+  </div>
+  <div id="place_Order">
+
+    <input type="checkbox" id="burger" value="1" />Burger
+    <input type="checkbox" id="fries" value="2" />French Fries
+    <input type="checkbox" id="chicken" value="3" />Fried Chicken
+    <input type="checkbox" id="roll" value="4" />Egg Roll
+    <input type="checkbox" id="coffee" value="5" />Coffee
+  </div>
+  <div id="button">
+    <button onclick="submit()">ORDER FOOD</button>
+  </div>
+
+  <div id="main"></div>
+</body>
+
+</html>
+<script>
+  let arr = [];
+  async function submit() {
+    var Burger = document.getElementById("burger");
+    var fries = document.getElementById("fries");
+    var chicken = document.getElementById("chicken");
+    var roll = document.getElementById("roll");
+    var Pizza = document.getElementById("coffee");
+    if (Burger.checked) {
+      arr.push(Burger.value);
+    }
+    if (fries.checked) {
+      arr.push(fries.value);
+    }
+    if (chicken.checked) {
+      arr.push(chicken.value);
+    }
+    if (roll.checked) {
+      arr.push(roll.value);
+    }
+    if (coffee.checked) {
+      arr.push(coffee.value);
+    }
+    console.log(arr);
+
+    let promise = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve(arr);
+      }, );
+    });
+    var result = await promise;
+    arr = [];
+    console.log(result);
+    Show_food(result);
+  }
+  function Show_food(result) {
+    let container = document.getElementById("main");
+    container.innerHTML = null;
+    let title = document.createElement("h1");
+    title.innerHTML = "Enjoy Your Food"
+    title.style.color = " rgb(189,25,6)"
+    title.style.fontStyle = "italic"
+    container.append(title);
+    result.map(function (elem) {
+      let image = document.createElement("img");
+      image.style.borderRadius = "20px";
+      image.style.margin = "20px";
+      image.setAttribute("id", "image");
+      if (elem == 1) {
+        image.setAttribute(
+          "src",
+          "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_21/2870431/190524-classic-american-cheeseburger-ew-207p.jpg"
+        );
+      } else if (elem == 2) {
+        image.setAttribute(
+          "src",
+          "https://static.toiimg.com/thumb/54659021.cms?imgsize=275086&width=509&height=340"
+        );
+      } else if (elem == 3) {
+        image.setAttribute(
+          "src",
+          "https://static.mothership.sg/1/2021/06/Chicken-McCrispy®-2pc-Extra-Value-Meal-Credit-McDonald’s®-Singapore.png"
+        );
+      } else if (elem == 4) {
+        image.setAttribute(
+          "src",
+          "https://www.allrecipes.com/thmb/c0WqPNYZVnXsCWiuY1m4HvwfY6A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/4510434-b8697adba9264c2ea90c476e2c979bcf.jpg"
+        );
+      } else if (elem == 5) {
+        image.setAttribute(
+          "src",
+          "https://i.ytimg.com/vi/cZexsfmABng/maxresdefault.jpg"
+        );
+      }
+
+      container.append(image);
+    });
+  }
+</script>
