@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/navbar.css">
+    <title>Document</title>
+</head>
+<style>
+    #login-form-div{
+    border : 1px solid;
+    height: 250px; 
+    width: 300px;
+    text-align: center;
+    margin: auto;  
+    margin-top: 80px;
+    border-radius: 13px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.43) 0px 5px 15px;
+}
+
+input{
+    width: 85%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+#login{
+    background-color: blue;
+    width: 40%;
+    color: antiquewhite;
+    border-radius: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+</style>
+<body>
+    <div id="navbar"></div>
+    <div id="login-form-div">
+
+        <form>
+            <!--Write form input elements here-->
+            <h1>Login</h1>
+            <input id="email" type="text" placeholder="Enter your email">
+            <input id="password" type="password" placeholder="Enter your password">
+            <input id="login" type="submit" value="login">
+        </form>
+    
+    </div>
+    
+</body>
+</html>
+<script src="javascript/signin.js" type="module"></script>
+
+<script>
+var Arr = JSON.parse(localStorage.getItem("Users")) || [];
+document.getElementById("login").addEventListener("click", login);
+function login() {
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("password").value;
+    event.preventDefault();
+    
+    var flag = true;
+    for (var i = 0; i < Arr.length; i++) {
+        if (Arr[i].email == email) {
+            flag = false;
+            if (Arr[i].password == pass) {
+                alert("Login Succsefull");
+                window.location.href = "./login.html";
+            } else {
+                alert("wrong pass");
+            }
+        }
+    }
+    if (flag) alert("invalid credentials");
+}
+</script>

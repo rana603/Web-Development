@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/navbar.css">
+    <title>Document</title>
+</head>
+<style>
+    #signup-form-div{
+    border : 1px solid;
+    height: 300px; 
+    width: 300px;
+    text-align: center;
+    margin: auto;  
+    margin-top: 80px;
+    border-radius: 13px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.43) 0px 5px 15px;
+}
+
+input{
+    width: 85%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+#submit{
+    background-color: blue;
+    width: 30%;
+    color: antiquewhite;
+    border-radius: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+</style>
+<body>
+    <div id="navbar"></div>
+    <div id="signup-form-div">
+        <h1>Signup</h1>
+        <form>
+            <!--Write form input elements here-->
+            <input id="name" type="text" placeholder="Enter your name" required>
+            <input id="number" type="number" placeholder="Enter your contact" required>
+            <input id="email" type="email" placeholder="Enter your email" required>
+            <input id="password" type="password" placeholder="Enter your password" required>
+            <input id="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
+<script src="javascript/signup.js" type="module">
+    var Arr = JSON.parse(localStorage.getItem("Users")) || [];
+
+    function CreateUsers(email, password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    document.querySelector("form").addEventListener("submit", SignUp);
+    function SignUp() {
+        event.preventDefault();
+        var email = document.getElementById("email").value;
+        var pass = document.getElementById("password").value;
+
+        var User = new CreateUsers(email, pass);
+        Arr.push(User);
+        localStorage.setItem("Users", JSON.stringify(Arr));
+        window.location.href = "./login.html";
+
+    }
+    console.log(Arr);
+</script>
