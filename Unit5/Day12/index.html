@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #gitbar{
+        display: flex;
+        justify-content: flex-start;
+        /* background-color: black; */
+    }
+    input{
+        height: 30px;
+        margin-top: 25px;
+        margin-left:8px;
+    }
+</style>
+<body>
+    <div id="gitbar">
+        <h1>Github search</h1>
+        <input type="text" id="search-input" oninput="debounce()" placeholder="Search user">
+    </div>
+    <!-- <button id="search">search </button> -->
+    <div id="github-container"></div>
+</body>
+
+</html>
+<script src="./index.js"></script>
+<!-- <script>
+    // let button=document.getElementById("search-input");
+    let searchinput=document.getElementById("search");
+    let getData=async()=>{
+        let res=await fetch(`https://api.github.com/users/${searchinput.value}`);
+        let data=await res.json();
+        console.log(data);
+    }
+    // button.addEventListener("click",getData);
+    let displayData=({name,btn,avatar_url,followers,followng,company})=>{
+        document.getElementById("github-container").innerHTML="";
+        let h1=document.createElement("h1");
+        h1.textContent=name;
+        let h3=document.createElement("h3");
+        h3.textContent=bio;
+        let img=document.createElement("img");
+        img.src=avatar_url;
+        let p_follwers=document.createElement("p");
+        p_followers.textContent=followers;
+        let p_following=document.createElement("p");
+        p.textContent=following;
+        let p_company=document.createElement("p");
+        p_company.textContent=company;
+        document.getElementById("github-container").append(img,h1,h3,p_followers,p_following,p_company);
+
+    }
+    function debounce(){
+        console.log("hello");
+        // getData();
+        displayData();
+    }
+
+</script> -->
