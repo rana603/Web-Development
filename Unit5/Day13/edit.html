@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #edit-page{
+        display: flex;
+        width: 70%;
+        flex-direction: column;
+    }
+    #edit-page > *{
+        margin: 10px 0px;
+    }
+</style>
+<body>
+    <div id="edit-page">
+        <input type="text" id="title" placeholder="Enter Title">
+        <input type="text" id="author" placeholder="Enter author">
+        <textarea name="" id="body" cols="30" rows="10" placeholder="Enter body"></textarea>
+        <input type="text" id="tags" placeholder="Enter tags">
+        <button id="edit">Submit</button>
+    
+    </div>
+    
+</body>
+</html>
+<script src="./script/edit.js" type="module"></script>

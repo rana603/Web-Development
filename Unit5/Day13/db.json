@@ -1,0 +1,22 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "created_date": "10/12/2022",
+      "title": "Programming",
+      "author": "Gautam Singh",
+      "category": "Data Structure and algorithms",
+      "body": "array, string stack, queue ",
+      "tags": "Science,technology,Education"
+    },
+    {
+      "id": 1,
+      "created_date": "10/12/2022",
+      "title": "Programming",
+      "author": "Gautam Singh",
+      "category": "Data Structure and algorithms",
+      "body": "array, string stack, queue ",
+      "tags": "Science,technology,Education"
+    }
+  ]
+}
