@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Weather Application</title>
+</head>
+
+<body>
+
+    <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Enter City">
+        <button id="search-button">Search</button>
+    </div>
+    <div id="forecast">
+        
+    </div>
+
+    <div id="container">
+        <div id="weather">
+            <form>
+                <p id="time"></p>
+                <h1 id="location">Uttrakhand, IN</h1>
+                <div id="temp-bar">
+                    <div id="temp">
+                        <img id="temp-img" src="//ssl.gstatic.com/onebox/weather/64/sunny.png" />
+                        <div style="display: flex;">
+                            <h2 id="acc-temp">26°C | Clear Sky</h2>
+
+                        </div>
+                        <div id="wtype">
+                            <h4 id="min-max">(Min: 24°C | Max: 29°C) </h4>
+                            <h4 id="feels-Like"> Feels like 26*C, </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="weather-info-div">
+
+                    <div>
+                        <p id="humidity">Humadity : 43%</p>
+                    </div>
+                    <div>
+                        <p id="wind">Wind: 4.37 m/s </p>
+                    </div>
+                    <div>
+                        <p id="pressure"> Pressure: 1016 Pa</p>
+                    </div>
+
+                    <div>
+                        <p id="visiblity">Visiblity:10000 m</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- <div id="map"> -->
+        <div class="mapouter">
+            <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" frameborder="0" scrolling="no"
+                    marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: left;
+                        height: 400px;
+                        width: 600px;
+                    }
+                </style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+                <style>
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 450px;
+                        width: 1600px;
+                    }
+                </style>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</body>
+
+</html>
+<script>
+    
+    document.getElementById("search-button").addEventListener("click", fetcData);
+    function fetcData() {
+        var city = document.getElementById("search-input").value;
+        document.getElementById("gmap_canvas").setAttribute("src", `https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`);
+        var res = fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=eef812bad6c430c4a8454611ef6cee98&units=metric");
+        const API_key = "eef812bad6c430c4a8454611ef6cee98";
+
+        var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,hourly,minutely,alerts&units=metric&appid=${API_key}`;
+        var res = fetch(url);
+        res.then(function (resdata) {
+            return resdata.json();
+        })
+            .then(function (weatherData) {
+                // displayData(weatherData);
+                console.log(weatherData);
+                var lat = weatherData.coord.lat;
+                var lon = weatherData.coord.lon;
+                console.log(lat, lon);
+            })
+            .catch(function (e) {
+                console.log(e)
+            });
+    }
+</script>
