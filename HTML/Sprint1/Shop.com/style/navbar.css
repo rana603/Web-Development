@@ -53,10 +53,11 @@
   }
   
   #logo {
-    margin-bottom: 10px;
+    margin:10px;
   }
   #logo > img {
-    width: 90%;
+    width: 140px;
+  
   }
   #menu-bar{
     font-size: 21px;
@@ -107,7 +108,7 @@
     font-style: italic;
     font-size: 16px;
   }
-  #navbar-right-bottom {
+  .navbar-right-bottom {
     display: flex;
     justify-content: space-between;
     margin-top: 5PX;
@@ -167,7 +168,7 @@
   }
   
   .searchbar input {
-      width: 90%;
+      width: 75%;
       height: 45px;
       border: 2px;
       border-radius: 20px 0px 0px 20px;
@@ -193,6 +194,60 @@
       cursor: pointer;
       border: 1px solid rgb(17, 17, 17)
   }
+
+
+  .nav-toggler{
+    height: 34px;
+    width: 44px;
+    background-color:#000;
+    border-radius: 4px;
+    cursor: pointer;
+    border:none;
+    display: none;
+    margin-right: 15px;
+  }
+  .nav-toggler:focus{
+    outline: none;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+  }
+  .nav-toggler span{
+      height: 2px;
+      width: 20px;
+      background-color: #fff;
+      display: block;
+      margin:auto;
+      position: relative;
+      transition: all 0.3s ease;
+  }
+  .nav-toggler.active span{
+    background-color: transparent;
+  }
+  .nav-toggler span::before,
+  .nav-toggler span::after{
+    content: '';
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color:#fff;
+    transition: all 0.3s ease;
+  }
+  .nav-toggler span::before{
+    transform: translateY(-6px);
+  }
+  .nav-toggler.active span::before{
+    transform: rotate(45deg);
+  }
+  .nav-toggler span::after{
+    transform: translateY(6px);
+  }
+  .nav-toggler.active span::after{
+    transform: rotate(135deg);
+  }
+  
+  
+  
 
 
   /* footer */
@@ -283,3 +338,82 @@
   }
   
   
+  @media(max-width:992px){
+    .nav-toggler{
+      display: block;
+      margin-top: 13px;
+    }
+    .navbar-right-bottom{
+      width: 100%;
+      padding-top:7px;
+      max-height: 0px;
+      overflow: hidden;
+      visibility: hidden;
+      transition: all 0.5s ease;
+    }
+    .nav-icons{
+     visibility: hidden;
+    }
+    .navbar-right-bottom {
+      visibility: visible;
+      display: flex;
+    }
+    .dept-list{
+     display: block;
+     padding-top: 5px;
+     
+    }
+    .searchbar {
+     visibility: hidden;
+    }
+    .open{
+     visibility: visible;
+    }
+    .nav-icons{
+     visibility: visible;
+     display: block;
+     margin-top: 20px;
+  
+    }
+    .thinFont{
+     font-size: 15px;
+    }
+    #menu-bar {
+     /* visibility: none; */
+     display: none;
+    }
+    #header-left-top{
+     /* visibility: none; */
+     display: none;
+    }
+    .cashback-container{
+     display: none;
+    }
+    .sub-header{
+     display: none;
+    }
+    .navbar-right-bottom ul{
+      padding:12px 15px 0;
+      margin-top: 12px;
+      border-top:1px solid rgba(255,255,255,0.2);
+    }
+    .navbar-right-bottom ul li{
+      display: block;
+      margin:0;
+    }
+ }
+ 
+ 
+  
+  /* For medium devices */
+  @media screen and (max-width: 768px) {
+   
+  }
+  
+  @media screen and (max-width: 576px) {
+  }
+  
+  /* For small devices */
+  @media screen and (max-width: 350px) {
+    
+  }

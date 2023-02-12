@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/navbar.css">
-    <title>Document</title>
+    <title>Shop.com</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 <div class="searchbar">
                     <input type="text" placeholder="Search" id="video_search" />
                     <div>
-                        <img src="https://cdn2.iconfinder.com/data/icons/apple-inspire-white/100/Apple-30-512.png"
+                        <img  src="https://cdn2.iconfinder.com/data/icons/apple-inspire-white/100/Apple-30-512.png"
                             width="20px" height="20px" />
                     </div>
                 </div>
@@ -36,10 +36,10 @@
                         alt="" />
                 </div>
             </div>
-            <div id="navbar-right-bottom">
+            <div class="navbar-right-bottom">
                 <ul class="dept-list">
                     <li class="dept-item">
-                        <a href="mensData.html">Men</a>
+                        <a href="mensData.html" class="active">Men</a>
                     </li>
                     <li class="dept-item">
                         <a href="womansData.html">Women</a>
@@ -59,8 +59,13 @@
                     <a href="order.html"><i class="fas fa-redo-alt"><span class="thinFont"> Orders</span></i></a>
                     <a href="cart.html"><i class="fas fa-shopping-cart"><span class="thinFont"> Cart</span></i></a>
                 </div>
+               
             </div>
+            
         </div>
+        <button type="button" class="nav-toggler">
+            <span></span>
+         </button>
     </section>
     <div id="total">
         <h2>Your Cart</h2>
@@ -240,4 +245,4 @@
 
 
 
-</script>
+</script><script src="./script/navbar.js"></script>
